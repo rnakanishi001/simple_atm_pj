@@ -1,6 +1,7 @@
 package application.service.acount.open_acount;
 
 import java.util.Objects;
+import java.util.Properties;
 import java.util.Random;
 
 import domain.entity.Acount;
@@ -14,7 +15,7 @@ public class OpenAcount {
      * @param name 登録氏名
      * @param pass 登録パスワード
      */
-    public void openAcount(String sureName,String name,String pass,int initiPrice){
+    public void openAcount(String sureName,String name,String pass,int initiPrice) throws OpenaAcountException{
         // 正規表現(name)
         final String nameValidate = "[A-Z]{1}[a-z]*";
         // 正規表現(pass)
@@ -34,8 +35,11 @@ public class OpenAcount {
             Acount acount = new Acount(sureName,name,pass);
             String acountNumber = this.setAcountNumber();
             if(Objects.isNull(acountNumber)){
-                throw new OpenaAcountException();
+                Properties property = new Properties();
+                throw new OpenaAcountException("");
             }
+            acount.setAcountNumber(acountNumber);
+            acount.setHasMoney(initiPrice);
         }
     }
 
