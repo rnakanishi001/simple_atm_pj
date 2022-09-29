@@ -5,7 +5,13 @@ public class Acount {
     private String name = "";
     private String pass = "";
     private String acountNumber = "";
-    private double hasMoney;
+    private int hasMoney;
+
+    public Acount(String sureName,String name,String pass){
+        this.sureName = sureName;
+        this.name = name;
+        this.pass = pass;
+    }
     
     public void setSureName(String sureName) {
         this.sureName = sureName;
@@ -19,7 +25,7 @@ public class Acount {
     public void setAcountNumber(String acountNumber) {
         this.acountNumber = acountNumber;
     }
-    public void setHasMoney(double hasMoney) {
+    public void setHasMoney(int hasMoney) {
         this.hasMoney = hasMoney;
     }
     public String getSureName() {
